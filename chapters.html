@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทเรียน — จำศัพท์จีน</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page" id="page-chapters">
+
+    <header class="greeting">
+      <h1>📚 บทเรียน</h1>
+    </header>
+
+    <!-- รายการบทถูกสร้างจาก VOCAB_DATA ผ่าน app.js (TASK 4.2) -->
+    <div id="chapterList"></div>
+
+    <button class="fab-add" aria-label="สร้างบทใหม่" onclick="location.href='create-chapter.html'">＋</button>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item" onclick="location.href='index.html'">🏠<span>หน้าแรก</span></button>
+    <button class="nav-item active" onclick="location.href='chapters.html'" aria-current="page">📚<span>บทเรียน</span></button>
+    <button class="nav-item" onclick="location.href='quick-review.html'">🧠<span>ทบทวน</span></button>
+    <button class="nav-item" disabled title="เร็ว ๆ นี้">📊<span>ความคืบหน้า</span></button>
+  </nav>
+
+  <script src="data/vocab-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

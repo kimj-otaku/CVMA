@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สร้างบทใหม่ — จำศัพท์จีน</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page" id="page-create-chapter">
+
+    <header class="card-page-header">
+      <button class="icon-btn" aria-label="ย้อนกลับไปหน้า Chapters" onclick="location.href='chapters.html'">←</button>
+      <div class="card-page-title">
+        <span class="chapter-title">✏️ สร้างบทใหม่</span>
+        <span class="chapter-sub">เพิ่มบทเรียนคำศัพท์ของคุณ</span>
+      </div>
+      <div class="icon-spacer"></div>
+    </header>
+
+    <!-- ===== ข้อมูลบท ===== -->
+    <section class="card">
+      <div class="card-label">ข้อมูลบท</div>
+
+      <div class="form-field">
+        <label class="form-label" for="chapterName">ชื่อบท</label>
+        <input class="form-input" id="chapterName" type="text" placeholder="เช่น HSK2 บทที่ 5 — ร้านอาหาร">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="chapterDesc">คำอธิบายสั้น ๆ (ไม่บังคับ)</label>
+        <textarea class="form-input" id="chapterDesc" rows="2" placeholder="เช่น คำศัพท์เกี่ยวกับการสั่งอาหาร"></textarea>
+      </div>
+    </section>
+
+    <!-- ===== นำเข้าจากรูปภาพ (อนาคต) ===== -->
+    <section class="card import-card">
+      <div class="import-card-text">
+        <div class="card-label">📷 นำเข้าจากรูปภาพ</div>
+        <div class="form-hint">ถ่ายหน้าหนังสือแล้วให้ระบบช่วยดึงคำศัพท์</div>
+      </div>
+      <button class="btn btn-secondary import-btn" disabled>เร็ว ๆ นี้</button>
+    </section>
+
+    <!-- ===== เพิ่มคำศัพท์เอง ===== -->
+    <div class="section-head">
+      <span class="card-label">เพิ่มคำศัพท์เอง</span>
+      <span class="form-hint" id="vocabCount">1 คำ</span>
+    </div>
+
+    <div id="vocabList">
+      <section class="card vocab-form">
+        <div class="vocab-form-head">
+          <span class="tag">คำที่ 1</span>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">汉字</label>
+          <input class="form-input form-input-hanzi" type="text" placeholder="老师">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">Pinyin</label>
+          <input class="form-input" type="text" placeholder="lǎoshī">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">ความหมายภาษาไทย</label>
+          <input class="form-input" type="text" placeholder="ครู">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">ตัวอย่างประโยค</label>
+          <input class="form-input" type="text" placeholder="老师教我们中文。">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">คำแปลตัวอย่างประโยค</label>
+          <input class="form-input" type="text" placeholder="ครูสอนภาษาจีนให้เรา">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">💡 Memory Tip</label>
+          <input class="form-input" type="text" placeholder="老 + 师 → 老师 = ครู">
+        </div>
+      </section>
+    </div>
+
+    <button class="btn btn-add-vocab" id="addVocabBtn" type="button">＋ เพิ่มคำศัพท์อีกคำ</button>
+
+    <!-- ===== ปุ่มหลัก ===== -->
+    <div class="form-actions">
+      <button class="btn btn-primary" type="button" onclick="location.href='chapters.html'">✅ สร้างบท</button>
+      <button class="btn btn-secondary" type="button" onclick="location.href='chapters.html'">ยกเลิก</button>
+    </div>
+
+  </main>
+
+  <!-- UI เท่านั้น: เพิ่มฟอร์มคำใหม่ ยังไม่มีการบันทึกข้อมูลจริง -->
+  <script>
+    (function () {
+      var list = document.getElementById('vocabList');
+      document.getElementById('addVocabBtn').addEventListener('click', function () {
+        var copy = list.firstElementChild.cloneNode(true);
+        copy.querySelectorAll('input').forEach(function (i) { i.value = ''; });
+        copy.querySelector('.tag').textContent = 'คำที่ ' + (list.children.length + 1);
+        list.appendChild(copy);
+        document.getElementById('vocabCount').textContent = list.children.length + ' คำ';
+      });
+    })();
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

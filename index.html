@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จำศัพท์จีน</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page" id="page-home">
+
+    <header class="greeting">
+      <h1>你好 👋</h1>
+      <p>วันนี้มาเรียนภาษาจีนกันไหม?</p>
+    </header>
+
+    <section class="card card-current">
+      <div class="card-label">กำลังเรียน</div>
+      <h2 class="chapter-title">第1课</h2>
+      <div class="progress-text">12 / 20 คำ</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:60%"></div>
+      </div>
+      <button class="btn btn-primary" onclick="location.href='learn.html'">เรียนต่อ</button>
+    </section>
+
+    <section class="card card-review">
+      <div class="card-label">วันนี้ต้องทบทวน</div>
+      <div class="review-counts">
+        <span class="badge badge-danger">🔴 5</span>
+        <span class="badge badge-warning">🟡 7</span>
+      </div>
+      <button class="btn btn-secondary" onclick="location.href='quick-review.html'">🧠 ทบทวนวันนี้</button>
+    </section>
+
+    <div class="streak">🔥 เรียนต่อเนื่อง 7 วัน</div>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="location.href='index.html'" aria-current="page">🏠<span>หน้าแรก</span></button>
+    <button class="nav-item" onclick="location.href='chapters.html'">📚<span>บทเรียน</span></button>
+    <button class="nav-item" onclick="location.href='quick-review.html'">🧠<span>ทบทวน</span></button>
+    <button class="nav-item" disabled title="เร็ว ๆ นี้">📊<span>ความคืบหน้า</span></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
